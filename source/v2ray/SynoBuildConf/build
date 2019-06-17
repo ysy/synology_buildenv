@@ -10,3 +10,6 @@ case ${MakeClean} in
 esac
 
 make ${MAKE_FLAGS} CROSS_COMPILE=$CROSS_COMPILE ARCH=$ARCH  CONFIG_NETFILTER_XT_TARGET_TPROXY=m -C $KSRC M=${module_path} modules 
+
+module_path=$(realpath linux-4.4.59/net/netfilter/ipset)
+make ${MAKE_FLAGS} CROSS_COMPILE=$CROSS_COMPILE ARCH=$ARCH  CONFIG_IP_SET_HASH_NET=m -C $KSRC M=${module_path} modules 
